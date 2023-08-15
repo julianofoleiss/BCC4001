@@ -58,7 +58,8 @@ ListaEncadeada::~ListaEncadeada(){
 void ListaEncadeada::inserir(int dado){
     // O novo nó sendo inserido na lista está sendo alocado na heap, uma vez
     // que não queremos que o nó seja destruído quando a função inserir
-    // terminar. O nó deve ser destruído apenas quando a lista for destruída.
+    // terminar. O nó deve ser destruído apenas quando a lista for destruída,
+    // ou quando o nó for removido da lista.
 
     // Note que o construtor da classe No recebe um parâmetro inteiro, que é
     // o dado a ser armazenado no nó.

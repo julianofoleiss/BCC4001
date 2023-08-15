@@ -1,5 +1,10 @@
 #define DEBUG 1
 
+// De maneira resumida e simplificada, uma "classe" é um tipo de dado 
+// definido pelo usuário. É uma evolução do conceito de "struct" do C,
+// que permite que sejam definidos tipos de dados que contém atributos
+// e métodos (funções-membros) que operam sobre estes atributos.
+
 class ListaEncadeada{
 
 // resumidamente, o modificador de acesso "public" indica que os membros
@@ -25,7 +30,7 @@ public:
     bool buscar(int valor);
     bool vazia();
 
-// resumidamente, o modificador de acesso "priva" indica que os membros
+// resumidamente, o modificador de acesso "private" indica que os membros
 // públicos da classe definidos após o modificador de acesso e antes do próximo modificador
 // podem ser acessados apenas por objetos da mesma classe.
 
