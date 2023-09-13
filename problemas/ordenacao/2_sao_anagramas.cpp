@@ -1,4 +1,4 @@
-#include <cstdlib>
+#include <iostream>
 #include <string>
 #include <cstdlib>
 #include <algorithm>
@@ -20,7 +20,7 @@ int main(int argc, char** argv){
     string s2(argv[2]);
 
     #if DEBUG
-    printf("%u\n", sao_anagramas(s1, s2) ? 1 : 0);
+    cout << sao_anagramas(s1, s2) << "\n";
     #endif
     
     return EXIT_SUCCESS;

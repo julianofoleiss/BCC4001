@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include <cstdio>
+#include <iostream>
 #include "utils.h"
 
 #include <algorithm>
@@ -13,7 +14,7 @@
 // k=2 retorna o segundo maior elemento
 // k=....
 // k=n retorna o menor elemento
-int k_maior(std::vector<int> &v, int n, int k){
+int k_maior(std::vector<int> &v, int k){
     return 0;
 }
 
@@ -27,10 +28,10 @@ int main(int argc, char** argv){
     imprimir_vetor(v.data(), n);
     #endif
 
-    int res = k_maior(v, n, k);
+    int res = k_maior(v, k);
 
     #if DEBUG
-    printf("O %u-ésimo maior elemento do vetor é o %d!\n", k, res);
+    std::cout << "O " << k << "-ésimo maior elemento do vetor é o " << res << "!\n";
     #endif    
 
     return EXIT_SUCCESS;
