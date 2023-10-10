@@ -6,7 +6,7 @@
 class TabHashEndAberto {
 public:
     //Construtor: inicializa uma nova tabela com tamanho m
-    TabHashEndAberto(int tamanho);
+    TabHashEndAberto(int tamanho, float limiar = 0.5);
 
     //Destrutor: libera todos os recursos alocados para a tabela
     ~TabHashEndAberto(); 
@@ -53,8 +53,8 @@ private:
     int m; // tamanho da tabela
     int n; // número de elementos na tabela
     // limiar para redimensionamento. quando n/m > limiar, redimensionar
-    //float limiar; 
-    //int redims; // número de redimensionamentos realizados
+    float limiar; 
+    int redims; // número de redimensionamentos realizados
 
     Elemento *tabela; // tabela hash
 
