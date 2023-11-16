@@ -51,37 +51,23 @@ void test2(int argc, char** argv){
 
 }
 
-// testa a inserção e remoção de valores na árvore
+// testa a inserção de muitos valores em ordem crescente na árvore
 void test3(int argc, char** argv){
 
+    int n = std::stoi(argv[1]);
+
     ARN<int, int> arvore;
+        
+    for(int i = 0; i < n; i++)
+        arvore.inserir(i, i);
 
-    std::array<int, 8> valores = {10, 5, 15, 3, 7, 12, 17, 1};
-
-    for(int x : valores){
-        arvore.inserir(x, x);
-    }
-
-    arvore.imprimir();
-
-    for(int x : valores){
-        std::cout << "Removendo o " << x << std::endl;
-        arvore.remover(x);
-        std::cout << "Após a remoção do " << x << std::endl;
-        arvore.imprimir();
-    }
-
-    for(int x : valores){
-        if(arvore.buscar(x) != nullptr)
-            std::cout << "Erro: " << x << " encontrado" << std::endl;
-    }
 }
 
 int main(int argc, char** argv){
 
-    test1(argc, argv);
-    // test2(argc, argv);
-    // test3(argc, argv);
+    //test1(argc, argv);
+    //test2(argc, argv);
+    test3(argc, argv);
 
     return 0;
 

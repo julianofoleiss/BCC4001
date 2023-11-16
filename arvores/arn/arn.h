@@ -1,5 +1,10 @@
 #pragma once
 
+#include <iostream>
+
+template <typename tC, typename tV>
+class ARN;
+
 // Nó da árvore rubro-negra
 // tC: tipo da chave
 // tV: tipo do valor
@@ -42,7 +47,7 @@ private:
 
     // A classe ARN é amiga da classe NoARN, ou seja, a classe ARN pode acessar
     // os membros privados da classe NoARN
-    friend class ARN;
+    friend class ARN<tC, tV>;
 };
 
 // Árvore rubro-negra (left-leaning red-black tree)
@@ -58,10 +63,13 @@ class ARN {
 
         // retorna o endereço do nó com a chave especificada
         NoARN<tC, tV>* buscar(tC chave);
+
         // insere o par (chave, valor) na árvore
         void inserir(tC chave, tV valor);
+
         // remove o nó com a chave especificada
         void remover(tC chave);
+
         // imprime a árvore
         void imprimir();
         // retorna a altura da árvore
@@ -76,27 +84,25 @@ class ARN {
         //retorna o endereço do nó com a menor chave da árvore
         tC minimo();
         //retorna o endereço do nó com a menor chave da subárvore enraizada no nó especificado
-        NoArn<C, V>* minimo(NoArn<C, V>* no);
+        NoARN<tC, tV>* minimo(NoARN<tC, tV>* no);
 
         //retorna o endereço do nó com a maior chave da árvore
         tC maximo();
         //retorna o endereço do nó com a maior chave da subárvore enraizada no nó especificado
-        NoArn<C, V>* maximo(NoArn<C, V>* no);
+        NoARN<tC, tV>* maximo(NoARN<tC, tV>* no);
 
         //retorna o endereço do nó com a chave sucessora da chave especificada
-        NoArn<C, V>* sucessor(C chave);
+        NoARN<tC, tV>* sucessor(tC chave);
         //retorna o endereço do nó com a chave sucessora da chave especificada
-        NoArn<C, V>* sucessor(NoArn<C, V>* no);
+        NoARN<tC, tV>* sucessor(NoARN<tC, tV>* no);
 
         //retorna o endereço do nó com a chave antecessora da chave especificada
-        NoArn<C, V>* antecessor(C chave);
+        NoARN<tC, tV>* antecessor(tC chave);
         //retorna o endereço do nó com a chave antecessora da chave especificada
-        NoArn<C, V>* antecessor(NoArn<C, V>* no);
+        NoARN<tC, tV>* antecessor(NoARN<tC, tV>* no);
         
 private:    
     // armazena o endereço da raiz da árvore
     NoARN<tC, tV> *raiz;
-
-
 };
 
