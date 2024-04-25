@@ -21,10 +21,26 @@ public:
     std::pair<int,int> buscar(int chave);
     
     //Imprime a tabela
-    void imprimir();
+    void imprimir(){
+        for (int i = 0; i < this->m; i++) {
+            std::cout << i << ": ";
+            const auto& el = this->tabela[i];
+            std::cout << "(" << el.chave << "," << el.valor << ") ";
+            char estado = el.estado == Estado::APAGADO ? 'A' :
+                        (el.estado == Estado::LIVRE ? 'L' : 'O');
+            std::cout << "[" << estado << "]";
+            std::cout << std::endl;
+        }    
+    }
 
     //Imprime informações sobre a tabela (m, n e fator de carga)
-    void imprimir_info();
+    void imprimir_info()
+    {
+        std::cout << "m: " << this->m << std::endl;
+        std::cout << "n: " << this->n << std::endl;
+        std::cout << "fator de carga: " << (float)this->n/this->m << std::endl;
+        std::cout << "redimensionamentos: " << this->redims << std::endl;
+    }
 
     //par chave-valor inválido para indicar que a chave não foi encontrada
     std::pair<int,int> invalido;
