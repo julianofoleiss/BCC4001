@@ -11,9 +11,14 @@ class NoABB
     public:
         NoABB(C chave, V valor) 
             : chave(chave), valor(valor), 
-            esq(nullptr), dir(nullptr) {}
+            esq(nullptr), dir(nullptr) {
+                this->chave = chave;
+                this->valor = valor;
+                this->esq = nullptr;
+                this->dir = nullptr;
+            }
 
-        ~NoABB();
+        ~NoABB(){};
 
         C getChave() { return chave; }
         V& getValor() { return valor; }
@@ -35,7 +40,17 @@ class ABB
         ~ABB() { delete raiz; }
 
         //insere o par (chave, valor) na árvore
-        void inserir(C chave, V valor);
+        void inserir(C chave, V valor){
+            if(vazia()){
+                if(this->raiz->getChave() < chave){
+                    this->raiz->esq = NoABB*(chave, valor);
+                } else {
+                    this->raiz->dir = NoABB*(chave, valor);
+                }
+            }
+
+            //if(chave < this->)
+        };
         //retorna o endereço do nó com a chave especificada
         NoABB<C, V>* buscar(C chave);
         //remove o nó com a chave especificada
@@ -66,12 +81,24 @@ class ABB
         //retorna o número de nós da árvore
         int tamanho();
         //retorna true se a árvore estiver vazia
-        bool vazia();
+        bool vazia(){
+            if(this->raiz == nullptr){
+                return true;
+            }
+        };
 
     private:
 
         NoABB<C, V>* inserirNo(NoABB<C, V>* no, C chave, V valor);
-        NoABB<C, V>* removerNo(NoABB<C, V>* no, C chave);
+        NoABB<C, V>* removerNo(NoABB<C, V>* no, C chave){
+            if(no->dir = nullptr && no->esq = nullptr){
+                no->dir = nullptr;
+                no->esq = nullptr;
+                delete no;
+            }
+
+
+        };
         void imprimirNo(NoABB<C, V>* no, int nivel, char lado);
         NoABB<C, V>* raiz;
 };

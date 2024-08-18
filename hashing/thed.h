@@ -2,6 +2,8 @@
 
 #include <vector>
 #include <utility>
+#include <string>
+
 
 class TabHashEncadeamento {
 public:
@@ -13,6 +15,7 @@ public:
     
     //Insere um novo par (chave, valor) na tabela
     void inserir(int chave, int valor);
+    
     
     //Remove o par com a chave da tabeka
     void remover(int chave);
@@ -44,6 +47,7 @@ private:
 
     std::vector<std::pair<int,int>> *tabela; // tabela hash
     int hash(int chave); // função hash
+    int hash_string(std::string& chave);
 
     // redimensiona a tabela para o novo tamanho (novo_m)
     void redimensionar(int novo_m); 
