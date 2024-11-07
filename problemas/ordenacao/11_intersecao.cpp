@@ -5,7 +5,7 @@
 
 using namespace std;
 
-//Dados dois vetores v1 e v2 de inteiros, retorne um vetor contendo a interseção
+//Dados dois vetores v1 e v2 de inteiros positivos, retorne um vetor contendo a interseção
 //dos elementos de v1 e v2. Em outras palavras, a função deve retornar os elementos 
 //comuns a ambos os vetores, sem repetições. A ordem dos elementos no vetor retornado
 //não é importante. Caso não haja elementos em comum, retorne um vetor vazio.
@@ -17,6 +17,8 @@ using namespace std;
 //Exemplo: v1 = {1, 2, 3}, v2 = {4, 5, 6} deve retornar {}
 //Exemplo: v1 = {1}, v2 = {1} deve retornar {1}
 //Exemplo: v1 = {1, 1, 2}, v2 = {1, 2} deve retornar {1, 2}
+//Exemplo: v1 = {1, 1, 2}, v2 = {1, 2, 3} deve retornar {1, 2}
+
 vector<int> intersecao(vector<int> &v1, vector<int> &v2){
     vector<int> res;
     return res;
@@ -28,7 +30,9 @@ int main () {
         {{1, 2, 3, 4, 5}, {5, 4, 3, 2, 0}},
         {{1, 2, 3}, {4, 5, 6}},
         {{1}, {1}},
-        {{1, 1, 2}, {1, 2}}
+        {{1}, {}},
+        {{1, 1, 2}, {1, 2}},
+        {{1, 1, 2}, {1, 2, 3}}
     };
 
     auto imprimir = [](vector<int> &v) {

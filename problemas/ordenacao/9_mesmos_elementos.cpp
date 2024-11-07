@@ -8,7 +8,7 @@ using namespace std;
 
 //Dados dois vetores v1 e v2 de inteiros, retorne true se eles possuem os mesmos elementos,
 //ainda que em ordem diferente. Caso hajam elementos repetidos, a quantidade de repetições
-//deve ser a mesma.
+//deve ser a mesma. Não use o operador == para comparar vetores.
 
 //Exemplo: v1 = {1, 2, 3, 4, 5}, v2 = {5, 4, 3, 2, 1} deve retornar true
 //Exemplo: v1 = {1, 2, 3, 4, 5}, v2 = {5, 4, 3, 2, 0} deve retornar false
