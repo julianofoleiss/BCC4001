@@ -41,7 +41,10 @@ class ABB
         //remove o nó com a chave especificada
         void remover(C chave);
         //imprime a árvore
-        void imprimir();
+
+        void ABB<C, V>::imprimir(){
+            this->imprimirNo(raiz, 0, 'R');
+        }
 
         //retorna o endereço do nó com a menor chave da árvore
         NoABB<C, V>* minimo();
@@ -72,7 +75,21 @@ class ABB
 
         NoABB<C, V>* inserirNo(NoABB<C, V>* no, C chave, V valor);
         NoABB<C, V>* removerNo(NoABB<C, V>* no, C chave);
-        void imprimirNo(NoABB<C, V>* no, int nivel, char lado);
+        void ABB<C, V>::imprimirNo(NoABB<C, V> *no, int nivel, char lado){
+            for(int i = 0; i < nivel; i++){
+                std::cout << "-->";
+            }
+            if(no == NULL)
+                std::cout << "(" << lado << ") (VAZIO)" << std::endl;
+            else{
+                std::cout << "(" << lado << ") (" 
+                          << no->chave << ", " << no->valor << ")" << std::endl;
+
+                imprimirNo(no->esq, nivel + 1, 'E');
+                imprimirNo(no->dir, nivel + 1, 'D');
+            }
+        }
+
         NoABB<C, V>* raiz;
 };
 
