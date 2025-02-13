@@ -71,7 +71,10 @@ class ARN {
         void remover(tC chave);
 
         // imprime a árvore
-        void imprimir();
+        void imprimir(){
+            imprimirNo(raiz, 0, 'R');
+        }
+
         // retorna a altura da árvore
         int altura();
         // retorna a altura negra da árvore
@@ -104,5 +107,24 @@ class ARN {
 private:    
     // armazena o endereço da raiz da árvore
     NoARN<tC, tV> *raiz;
+
+    void imprimirNo(NoARN<tC, tV>* no, int nivel, char lado){
+        for(int i = 0; i < nivel; i++)
+            std::cout << "-->";
+        if(no == nullptr){
+            std::cout << "(" << lado << ") (VAZIO)"  << std::endl;
+        }
+        else{
+            std::cout << "(" << lado << ") (" 
+                  << no->chave << ", " << no->valor << ")" 
+                  << "[" 
+                  << (no->cor == NoARN<tC, tV>::Cor::VERMELHO ? 'V' : 'P') 
+                  << "]" 
+                  << std::endl;
+            imprimirNo(no->esq, nivel + 1, 'E');
+            imprimirNo(no->dir, nivel + 1, 'D');
+        }
+    }
+
 };
 
